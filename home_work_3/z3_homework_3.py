@@ -15,11 +15,11 @@ text = 'Python - geek высокоуровневый язык программи
 
 
 def count_number_of_words(input_str: str, top:int):
-    symbols_to_delete = ".?,!<>@'\"%:()&^$;/\\|#~`,«»."
-    processed_text = input_str.lower()
-    for symbol in symbols_to_delete:
-        processed_text = processed_text.replace(f'{symbol}', '')
-    final_text = processed_text.split()
+    chars_no = ".?,!<>@'\"%:()&^$;/\\|#~`,«»."
+    new_text = input_str.lower()
+    for char in chars_no:
+        new_text = new_text.replace(f'{char}', '')
+    final_text = new_text.split()
     my_dict = dict()
     for word in final_text:
         my_dict[word] = my_dict.get(word, 0) + 1
@@ -27,7 +27,7 @@ def count_number_of_words(input_str: str, top:int):
     for key, value in my_dict.items():
         my_list.append((value, key))
         my_list.sort(reverse=True)
-    return (my_list[:top])
+    return my_list[:top]
 
 
 print(count_number_of_words(text, 10))
