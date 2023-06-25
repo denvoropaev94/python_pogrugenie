@@ -51,5 +51,4 @@ def queen_sample():
 
 
 queen_sample()
-
 # queen_attack(new_string, 8)
