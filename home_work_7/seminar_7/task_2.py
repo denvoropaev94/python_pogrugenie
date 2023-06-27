@@ -25,4 +25,4 @@ def write_names(file_name, number_of_names):
             f.write(names_generator() + "\n")
 
 
-write_names('new.txt', 15)
+write_names('new.txt', 12)
