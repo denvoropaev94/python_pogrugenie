@@ -8,27 +8,26 @@
 import os
 
 
-def group_rename(wanted_name,
-                 old_file_extension,
-                 new_file_extension,
-                 first_old_naming_letter,
-                 last_old_naming_letter,
+def group_rename(want_name,
+                 old_file_ext,
+                 new_file_ext,
+                 first_old_lt,
+                 last_old_lt,
                  count_of_numbers=4):
-    naming_count = "0" * count_of_numbers
+    nm_count = "0" * count_of_numbers
     file_count = 1
     for file in (os.listdir()):
         if os.path.isfile(file):
-            initial_name, initial_ext = os.path.join(file).split(".")
-            if initial_ext == old_file_extension:
+            origin_name, origin_ext = os.path.join(file).split(".")
+            if origin_ext == old_file_ext:
                 if file_count < 10 ** count_of_numbers:
-                    naming_count = naming_count[:-len(str(file_count))] + str(file_count)
-                    final_file_name = initial_name[first_old_naming_letter - 1:last_old_naming_letter] + \
-                                      wanted_name + naming_count + "." + new_file_extension
-                    os.rename(os.path.join(file), final_file_name)
+                    nm_count = nm_count[:-len(str(file_count))] + str(file_count)
+                    final_name = origin_name[first_old_lt - 1:last_old_lt] + want_name + nm_count + "." + new_file_ext
+                    os.rename(os.path.join(file), final_name)
                     file_count += 1
                 else:
-                    print("Out of files")
+                    print("Нет файлов!")
                     break
 
 
-group_rename("new_file", "txt", "pdf", 1, 4)
+group_rename("my_file", "txt", "pdf", 1, 4)
