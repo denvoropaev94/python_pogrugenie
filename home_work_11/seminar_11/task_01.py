@@ -7,7 +7,7 @@ import time
 
 
 class MyStr(str):
-
+    """Класс моя строка, где будут доступны все возможности str"""
     def __new__(cls, value, name):
         instance = super().__new__(cls, value)
         instance.name = name
