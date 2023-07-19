@@ -3,7 +3,7 @@
 # Поднимайте исключения внутри основного кода.
 # Например нельзя создавать прямоугольник со сторонами отрицательной длины.
 
-class MyLengtWidthError(Exception):
+class MyLengthWidthError(Exception):
     def __init__(self, *args):
         self.string = args[0]
         super().__init__(*args)
@@ -35,7 +35,7 @@ class ValueCheck:
         if not isinstance(value, int):
             raise TypeError(f'Значение {value} должно быть целым числом')
         if self.min_value is not None and value < self.min_value:
-            raise MyLengtWidthError(f'{self.min_value}')
+            raise MyLengthWidthError(f'{self.min_value}')
 
 
 class Rectangle:
@@ -63,14 +63,14 @@ class Rectangle:
         if value > 0:
             self._length = value
         else:
-            raise MyLengtWidthError('0')
+            raise MyLengthWidthError('0')
 
     @wigth.setter
     def wight(self, value):
         if value > 0:
             self._width = value
         else:
-            raise MyLengtWidthError('0')
+            raise MyLengthWidthError('0')
 
     def square(self):
         return self._length * self._width
